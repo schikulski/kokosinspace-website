@@ -30,6 +30,12 @@ export const releases = pgTable("releases", {
   updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
 });
 
+export const settings = pgTable("settings", {
+  key: text("key").primaryKey(),
+  value: text("value").notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+});
+
 export type Band = typeof bands.$inferSelect;
 export type NewBand = typeof bands.$inferInsert;
 export type Release = typeof releases.$inferSelect;

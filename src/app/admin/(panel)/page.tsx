@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { getBands, getReleases } from "@/lib/db/queries";
+import { getBands, getContactEmails, getReleases } from "@/lib/db/queries";
 import { deleteBand, moveBand } from "./bands/actions";
 import { deleteRelease, moveRelease } from "./releases/actions";
 import { ConfirmDelete } from "@/components/admin/ConfirmDelete";
+import { ContactEmailsForm } from "@/components/admin/ContactEmailsForm";
 
 export default async function AdminHome() {
-  const [bands, releases] = await Promise.all([getBands(), getReleases()]);
+  const [bands, releases, emails] = await Promise.all([getBands(), getReleases(), getContactEmails()]);
 
   return (
     <>
@@ -152,6 +153,15 @@ export default async function AdminHome() {
               </tbody>
             </table>
           )}
+        </div>
+      </section>
+
+      <section id="contact" className="adm-section">
+        <div className="adm-section-head">
+          <h2 className="adm-h2">Contact emails</h2>
+        </div>
+        <div className="adm-card">
+          <ContactEmailsForm {...emails} />
         </div>
       </section>
     </>
