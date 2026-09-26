@@ -5,7 +5,19 @@ import styles from "./Newsletter.module.css";
 
 type Status = { state: "idle" } | { state: "loading" } | { state: "ok"; message: string } | { state: "error"; message: string };
 
-export function Newsletter() {
+export type NewsletterTexts = {
+  heading: string;
+  nameLabel: string;
+  namePlaceholder: string;
+  emailLabel: string;
+  emailPlaceholder: string;
+  button: string;
+  sending: string;
+  success: string;
+  error: string;
+};
+
+export function Newsletter({ t }: { t: NewsletterTexts }) {
   const [status, setStatus] = useState<Status>({ state: "idle" });
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
@@ -20,17 +32,17 @@ export function Newsletter() {
         body: JSON.stringify({ email: data.get("email"), name: data.get("name"), website: data.get("website") }),
       });
       const json = (await res.json().catch(() => ({}))) as { message?: string };
-      if (!res.ok) throw new Error(json.message || "Something went wrong.");
-      setStatus({ state: "ok", message: json.message || "You're in. Kokos says hi." });
+      if (!res.ok) throw new Error(json.message || t.error);
+      setStatus({ state: "ok", message: json.message || t.success });
       form.reset();
     } catch (err) {
-      setStatus({ state: "error", message: err instanceof Error ? err.message : "Something went wrong." });
+      setStatus({ state: "error", message: err instanceof Error && err.message ? err.message : t.error });
     }
   }
 
   return (
     <div className={`paper ${styles.card}`}>
-      <h2 className={styles.heading}>Get the newsletter, no spam, just space</h2>
+      <h2 className={styles.heading}>{t.heading}</h2>
       {status.state === "ok" ? (
         <p className={`hand ${styles.success}`} role="status">
           {status.message}
@@ -38,18 +50,18 @@ export function Newsletter() {
       ) : (
         <form onSubmit={onSubmit} className={styles.form} noValidate>
           <label className={styles.field}>
-            <span className={styles.label}>Name</span>
-            <input name="name" type="text" autoComplete="name" className={styles.input} placeholder="optional" />
+            <span className={styles.label}>{t.nameLabel}</span>
+            <input name="name" type="text" autoComplete="name" className={styles.input} placeholder={t.namePlaceholder} />
           </label>
           <label className={styles.field}>
-            <span className={styles.label}>Email</span>
-            <input name="email" type="email" required autoComplete="email" className={styles.input} placeholder="you@somewhere.space" />
+            <span className={styles.label}>{t.emailLabel}</span>
+            <input name="email" type="email" required autoComplete="email" className={styles.input} placeholder={t.emailPlaceholder} />
           </label>
           {/* Honeypot: real people never see this */}
           <input name="website" type="text" tabIndex={-1} autoComplete="off" className={styles.honey} aria-hidden="true" />
           <div className={styles.row}>
             <button type="submit" className={styles.button} disabled={status.state === "loading"}>
-              {status.state === "loading" ? "Sending…" : "Sign up →"}
+              {status.state === "loading" ? t.sending : t.button}
             </button>
             {status.state === "error" && (
               <span className={`hand ${styles.error}`} role="alert">

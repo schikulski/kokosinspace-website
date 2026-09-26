@@ -1,10 +1,13 @@
+import type { Texts } from "@/lib/texts";
 import styles from "./Footer.module.css";
 
-export function Footer() {
+export function Footer({ t }: { t: Texts }) {
   return (
     <footer className={styles.footer}>
-      <span>© {new Date().getFullYear()} Kokos in Space Records · Oslo</span>
-      <span className={`hand ${styles.note}`}>Kokos was not harmed in the making of this website.</span>
+      <span>
+        © {new Date().getFullYear()} {t.footerCopyright}
+      </span>
+      <span className={`hand ${styles.note}`}>{t.footerNote}</span>
     </footer>
   );
 }

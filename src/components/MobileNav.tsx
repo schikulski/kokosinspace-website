@@ -7,9 +7,11 @@ type Props = {
   links: { href: string; label: string }[];
   bookingEmail: string;
   labelEmail: string;
+  bookingText: string;
+  labelText: string;
 };
 
-export function MobileNav({ links, bookingEmail, labelEmail }: Props) {
+export function MobileNav({ links, bookingEmail, labelEmail, bookingText, labelText }: Props) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -48,10 +50,10 @@ export function MobileNav({ links, bookingEmail, labelEmail }: Props) {
             ))}
             <div className={styles.chips}>
               <a href={`mailto:${bookingEmail}`} className={styles.booking}>
-                Booking
+                {bookingText}
               </a>
               <a href={`mailto:${labelEmail}`} className={styles.label}>
-                Label
+                {labelText}
               </a>
             </div>
           </nav>

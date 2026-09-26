@@ -21,10 +21,7 @@ export const metadata: Metadata = {
   description: "Independent label and studio, Oslo. Six bands and a cat.",
   metadataBase: new URL("https://kokosinspace.com"),
   openGraph: {
-    title: "Kokos in Space Records",
-    description: "Independent label and studio, Oslo. Six bands and a cat.",
     url: "https://kokosinspace.com",
-    siteName: "Kokos in Space Records",
     images: [{ url: "/images/patch-color.png", width: 900, height: 900 }],
     locale: "en_US",
     type: "website",

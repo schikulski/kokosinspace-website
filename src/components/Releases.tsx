@@ -1,14 +1,15 @@
 import Image from "next/image";
 import type { Release } from "@/lib/db/schema";
+import type { Texts } from "@/lib/texts";
 import styles from "./Releases.module.css";
 
-export function Releases({ releases }: { releases: Release[] }) {
+export function Releases({ releases, t }: { releases: Release[]; t: Texts }) {
   return (
     <section id="releases" className={styles.section}>
       <div className="container">
         <div className={styles.head}>
-          <h2 className={styles.h2}>Releases</h2>
-          <span className={`hand ${styles.note}`}>all on Spotify and Bandcamp. some on vinyl, ask nicely.</span>
+          <h2 className={styles.h2}>{t.releasesHeading}</h2>
+          <span className={`hand ${styles.note}`}>{t.releasesNote}</span>
         </div>
         <div className={styles.grid}>
           {releases.map((r) => {
@@ -31,7 +32,7 @@ export function Releases({ releases }: { releases: Release[] }) {
                     />
                   ) : (
                     <div className={styles.placeholder}>
-                      cover art
+                      {t.releasesCoverPlaceholder}
                       <br />
                       {r.title}
                     </div>

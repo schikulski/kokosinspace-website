@@ -1,6 +1,8 @@
-import { asc, eq } from "drizzle-orm";
+import { asc, eq, like } from "drizzle-orm";
+import { cache } from "react";
 import { db } from ".";
 import { site } from "@/lib/site";
+import { DEFAULT_TEXTS, TEXT_PREFIX, type TextKey, type Texts } from "@/lib/texts";
 import { bands, heroImages, releases, settings } from "./schema";
 
 export function getBands() {
@@ -35,3 +37,14 @@ export async function getContactEmails(): Promise<ContactEmails> {
     labelEmail: map.get("labelEmail") || site.labelEmail,
   };
 }
+
+/** All site copy: admin-edited values from the settings table, falling back to the defaults in texts.ts. */
+export const getTexts = cache(async (): Promise<Texts> => {
+  const rows = await db.select().from(settings).where(like(settings.key, `${TEXT_PREFIX}%`));
+  const texts = { ...DEFAULT_TEXTS };
+  for (const r of rows) {
+    const key = r.key.slice(TEXT_PREFIX.length) as TextKey;
+    if (key in texts && r.value) texts[key] = r.value;
+  }
+  return texts;
+});

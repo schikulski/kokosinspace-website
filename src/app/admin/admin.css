@@ -340,3 +340,13 @@
   border-top: var(--border);
   margin: 24px 0;
 }
+
+.adm-sticky-save {
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+  margin-top: 32px;
+  padding: 14px 0;
+  background: rgba(239, 233, 219, 0.95);
+  border-top: var(--border);
+}
