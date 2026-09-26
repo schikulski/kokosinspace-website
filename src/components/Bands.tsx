@@ -1,11 +1,12 @@
 import Image from "next/image";
 import type { Band } from "@/lib/db/schema";
+import type { Texts } from "@/lib/texts";
 import styles from "./Bands.module.css";
 
-export function Bands({ bands }: { bands: Band[] }) {
+export function Bands({ bands, t }: { bands: Band[]; t: Texts }) {
   return (
     <section id="bands" className={`container ${styles.section}`}>
-      <h2 className={styles.h2}>The bands</h2>
+      <h2 className={styles.h2}>{t.bandsHeading}</h2>
       <div className={styles.grid}>
         {bands.map((b) => (
           <article key={b.id} className={styles.card}>
@@ -22,7 +23,7 @@ export function Bands({ bands }: { bands: Band[] }) {
                 />
               ) : (
                 <div className={styles.placeholder} style={{ transform: `rotate(${b.rotate})` }}>
-                  band photo
+                  {t.bandsPhotoPlaceholder}
                   <br />
                   {b.name}
                 </div>
@@ -36,17 +37,17 @@ export function Bands({ bands }: { bands: Band[] }) {
             <div className={styles.chips}>
               {b.instagram && (
                 <a href={b.instagram} target="_blank" rel="noopener" className="chip chip--ink">
-                  Instagram
+                  {t.chipInstagram}
                 </a>
               )}
               {b.spotify && (
                 <a href={b.spotify} target="_blank" rel="noopener" className="chip chip--teal">
-                  Spotify
+                  {t.chipSpotify}
                 </a>
               )}
               {b.bandcamp && (
                 <a href={b.bandcamp} target="_blank" rel="noopener" className="chip chip--outline">
-                  Bandcamp
+                  {t.chipBandcamp}
                 </a>
               )}
             </div>

@@ -20,7 +20,7 @@ pnpm dev
 
 ## Content
 
-Bands, releases and the booking/label emails live in Postgres and are edited at `/admin`. Static copy (about text, social links) lives in `src/lib/site.ts`.
+Bands, releases, the booking/label emails and all site copy live in Postgres and are edited at `/admin`. Every text field, with its default, is declared in `src/lib/texts.ts`; edited values are stored in the `settings` table as `text.<key>`, and an empty field falls back to the default. To add new copy, add a field there and read it from `getTexts()`.
 
 ## Schema changes
 
