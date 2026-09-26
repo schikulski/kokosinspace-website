@@ -20,11 +20,11 @@ pnpm dev
 
 ## Content
 
-Bands and releases live in Postgres and are edited at `/admin`. Static copy (emails, about text, social links) lives in `src/lib/site.ts`.
+Bands, releases and the booking/label emails live in Postgres and are edited at `/admin`. Static copy (about text, social links) lives in `src/lib/site.ts`.
 
 ## Schema changes
 
-Edit `src/lib/db/schema.ts`, then `pnpm db:generate && pnpm db:migrate`.
+Edit `src/lib/db/schema.ts`, then `pnpm db:generate` and commit the migration. Production deploys on Vercel run `drizzle-kit migrate` before `next build` (see `vercel-build`); run `pnpm db:migrate` yourself only for other databases.
 
 ## Images
 

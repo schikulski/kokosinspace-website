@@ -1,18 +1,19 @@
+import type { ContactEmails } from "@/lib/db/queries";
 import { site } from "@/lib/site";
 import { Newsletter } from "./Newsletter";
 import styles from "./Contact.module.css";
 
-export function Contact() {
+export function Contact({ bookingEmail, labelEmail }: ContactEmails) {
   return (
     <section id="newsletter" className={`container ${styles.section}`}>
       <Newsletter />
       <div className={styles.right}>
         <p className={`hand ${styles.note}`}>Want a band on your stage? Want to talk to the label? Two buttons, one cat.</p>
         <div className={styles.buttons}>
-          <a href={`mailto:${site.bookingEmail}`} className={styles.booking}>
+          <a href={`mailto:${bookingEmail}`} className={styles.booking}>
             Booking →
           </a>
-          <a href={`mailto:${site.labelEmail}`} className={styles.label}>
+          <a href={`mailto:${labelEmail}`} className={styles.label}>
             Label contact →
           </a>
         </div>

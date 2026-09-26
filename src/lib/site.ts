@@ -1,4 +1,4 @@
-/** Static site content that is not managed through the admin. */
+/** Static site content. Emails are only fallbacks; the live values are edited in the admin (see getContactEmails). */
 export const site = {
   name: "Kokos in Space Records",
   tagline: "Independent label and studio, Oslo. Six bands and a cat.",

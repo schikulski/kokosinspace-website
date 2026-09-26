@@ -15,6 +15,7 @@ export default async function PanelLayout({ children }: { children: React.ReactN
         <nav>
           <Link href="/admin#bands">Bands</Link>
           <Link href="/admin#releases">Releases</Link>
+          <Link href="/admin#contact">Contact</Link>
           <a href="/" target="_blank" rel="noopener">
             View site ↗
           </a>

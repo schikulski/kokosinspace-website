@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { site } from "@/lib/site";
+import type { ContactEmails } from "@/lib/db/queries";
 import { MobileNav } from "./MobileNav";
 import styles from "./Header.module.css";
 
@@ -11,7 +11,7 @@ export const NAV_LINKS = [
   { href: "#newsletter", label: "Newsletter" },
 ];
 
-export function Header() {
+export function Header({ bookingEmail, labelEmail }: ContactEmails) {
   return (
     <header className={styles.header}>
       <a href="#top" className={styles.logo} aria-label="Kokos in Space Records, back to top">
@@ -26,14 +26,14 @@ export function Header() {
             {l.label}
           </a>
         ))}
-        <a href={`mailto:${site.bookingEmail}`} className={styles.booking}>
+        <a href={`mailto:${bookingEmail}`} className={styles.booking}>
           Booking
         </a>
-        <a href={`mailto:${site.labelEmail}`} className={styles.label}>
+        <a href={`mailto:${labelEmail}`} className={styles.label}>
           Label
         </a>
       </nav>
-      <MobileNav links={NAV_LINKS} bookingEmail={site.bookingEmail} labelEmail={site.labelEmail} />
+      <MobileNav links={NAV_LINKS} bookingEmail={bookingEmail} labelEmail={labelEmail} />
     </header>
   );
 }
