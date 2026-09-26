@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com"><script>(function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');ml('account','606162');</script>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#efe9db;color:#111;font-family:Anton,Impact,sans-serif}a{color:inherit}a:hover{color:#1E4F66}
+@keyframes kfloat{0%{transform:translate(0,0) rotate(-6deg)}25%{transform:translate(-70px,-90px) rotate(8deg)}50%{transform:translate(-160px,-30px) rotate(-4deg)}75%{transform:translate(-60px,50px) rotate(10deg)}100%{transform:translate(0,0) rotate(-6deg)}}
+@keyframes kfloat2{0%,100%{transform:translate(0,0) rotate(-10deg)}50%{transform:translate(-10px,18px) rotate(-4deg)}}
+@keyframes kmarq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+</style></helmet>
+<div style="position:relative;min-height:100vh;overflow:hidden;background:#efe9db">
+<img src="assets/kokos-full.png" alt="Kokos" style="position:fixed;right:clamp(12px,3vw,48px);bottom:clamp(60px,10vh,120px);width:clamp(90px,9vw,130px);z-index:30;pointer-events:none;filter:drop-shadow(3px 5px 0 #111);animation:{{ floatAnim }}">
+<sc-if value="{{ grain }}" hint-placeholder-val="{{ true }}"><div style="position:fixed;inset:0;background-image:radial-gradient(rgba(0,0,0,.14) .6px,transparent .7px);background-size:3px 3px;opacity:.7;pointer-events:none;z-index:50"></div></sc-if>
+
+<!-- NAV -->
+<header style="position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding:18px 32px;background:rgba(239,233,219,.92);border-bottom:3px solid #111;font-size:18px;text-transform:uppercase;letter-spacing:.04em">
+  <a href="#top" style="text-decoration:none;display:flex;align-items:center;gap:14px"><span style="width:64px;height:64px;border-radius:50%;background:#111;border:3px solid #111;overflow:hidden;display:block;flex:none;position:relative"><img src="assets/kokos-bust.png" alt="Kokos" style="position:absolute;left:-4px;top:2px;width:76px"></span><span style="background:#111;color:#efe9db;padding:8px 12px;transform:rotate(-2deg);display:inline-block">Kokos in Space Records</span></a>
+  <nav style="display:flex;gap:22px;flex-wrap:wrap;align-items:center"><a href="#bands" style="text-decoration:none">Bands</a><a href="#releases" style="text-decoration:none">Releases</a><a href="#playlist" style="text-decoration:none">Playlist</a><a href="#about" style="text-decoration:none">Kokos</a><a href="#newsletter" style="text-decoration:none">Newsletter</a><a href="mailto:booking@kokosinspace.com" style="text-decoration:none;background:#1E4F66;color:#fff;padding:5px 12px;transform:rotate(1.5deg);display:inline-block">Booking</a><a href="mailto:label@kokosinspace.com" style="text-decoration:none;border:3px solid #111;padding:2px 12px;transform:rotate(-1deg);display:inline-block">Label</a></nav>
+</header>
+
+<!-- HERO -->
+<section id="top" style="position:relative;max-width:1440px;margin:0 auto;padding:40px 32px 60px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:40px;align-items:start">
+  <div style="position:relative;min-height:520px">
+    <div style="position:relative;width:min(100%,600px);height:400px">
+      <img src="assets/band-sadchloe.jpg" alt="" style="position:absolute;left:0;top:0;width:75%;height:320px;object-fit:cover;filter:grayscale(1) contrast(1.9) brightness(1.1);transform:rotate(-2.5deg);box-shadow:4px 6px 0 #111;display:block">
+      <div style="position:absolute;left:28%;top:-14px;width:140px;height:34px;background:rgba(233,223,166,.9);transform:rotate(-6deg);box-shadow:0 1px 2px rgba(0,0,0,.2);z-index:2"></div>
+      <img src="assets/patch-color.png" alt="Kokos in Space Records" style="position:absolute;right:0;bottom:0;width:58%;transform:rotate(6deg);filter:drop-shadow(4px 6px 0 #111);z-index:3">
+    </div>
+    <div style="margin-top:28px;display:flex;flex-wrap:wrap;gap:8px;font-size:clamp(56px,7.5vw,110px);line-height:.9;text-transform:uppercase">
+      <span style="background:#111;color:#efe9db;padding:0 10px;transform:rotate(-2deg)">KOKOS</span><span style="background:#EE8A1C;color:#111;padding:0 10px;transform:rotate(1.5deg)">IN</span><span style="background:#1F8A8C;color:#fff;padding:0 10px;transform:rotate(-1deg)">SPACE</span><span style="background:#1E4F66;color:#fff;padding:0 10px;transform:rotate(2deg)">RECORDS</span>
+    </div>
+    <p style="margin:24px 0 0;max-width:520px;font:400 26px/1.25 'Shadows Into Light',cursive;color:#1E4F66;transform:rotate(-1.5deg)">Independent label and studio, Oslo. Six bands and a cat.</p>
+  </div>
+  <div style="position:relative;display:flex;flex-direction:column;gap:0;padding-top:20px">
+    <div style="font:400 24px/1.2 'Shadows Into Light',cursive;color:#1E4F66;transform:rotate(-3deg);margin:0 10% 26px 0">the cat drifting around down there is Kokos. he approves of the playlist. ↘</div>
+    <div id="playlist" style="background:#fff;border:3px solid #111;padding:16px;transform:rotate(1.5deg);box-shadow:6px 6px 0 #111">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:18px;letter-spacing:.06em;text-transform:uppercase"><span>Label mixtape ▶</span><span style="font:400 16px/1 'Shadows Into Light',cursive;color:#555">everyone on the roster, updated when we remember</span></div>
+      <div style="margin-top:10px"><iframe src="https://open.spotify.com/embed/playlist/7yHrfwi0oz244fqON0VYRC?theme=0" width="100%" height="352" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" style="border-radius:8px;display:block"></iframe></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div style="background:#1F8A8C;color:#fff;border-top:3px solid #111;border-bottom:3px solid #111;overflow:hidden;white-space:nowrap;font-size:28px;text-transform:uppercase;letter-spacing:.06em;padding:10px 0"><div style="display:inline-flex;gap:48px;animation:{{ marqAnim }};padding-right:48px"><span>Twin Pines Mall</span><span style="color:#E9DFA6">★</span><span>The Hallway</span><span style="color:#E9DFA6">★</span><span>Sad Chloe</span><span style="color:#E9DFA6">★</span><span>Eight Minus</span><span style="color:#E9DFA6">★</span><span>Iwishiwasadinosaur</span><span style="color:#E9DFA6">★</span><span>Gærsint Bæver</span><span style="color:#E9DFA6">★</span><span>Twin Pines Mall</span><span style="color:#E9DFA6">★</span><span>The Hallway</span><span style="color:#E9DFA6">★</span><span>Sad Chloe</span><span style="color:#E9DFA6">★</span><span>Eight Minus</span><span style="color:#E9DFA6">★</span><span>Iwishiwasadinosaur</span><span style="color:#E9DFA6">★</span><span>Gærsint Bæver</span><span style="color:#E9DFA6">★</span></div></div>
+
+<!-- BANDS -->
+<section id="bands" style="max-width:1440px;margin:0 auto;padding:70px 32px 40px">
+  <h2 style="margin:0 0 40px;font-size:clamp(48px,6vw,88px);line-height:.9;text-transform:uppercase;display:inline-block;background:#1E4F66;color:#fff;padding:4px 16px;transform:rotate(-1.5deg)">The bands</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:44px 36px">
+    <sc-for list="{{ bands }}" as="b" hint-placeholder-count="5">
+    <article style="position:relative;display:flex;flex-direction:column;gap:14px">
+      <div style="position:relative"><sc-if value="{{ b.img }}" hint-placeholder-val="{{ false }}"><img src="{{ b.img }}" alt="{{ b.name }}" style="width:100%;aspect-ratio:4/3;object-fit:cover;transform:rotate({{ b.rot }});box-shadow:4px 6px 0 #111;display:block"></sc-if><sc-if value="{{ b.noImg }}" hint-placeholder-val="{{ false }}"><div style="width:100%;aspect-ratio:4/3;transform:rotate({{ b.rot }});box-shadow:4px 6px 0 #111;background:repeating-linear-gradient(45deg,#ddd 0 10px,#ccc 10px 20px);display:grid;place-items:center;font:400 13px/1.4 ui-monospace,monospace;color:#555;text-align:center">band photo<br>{{ b.name }}</div></sc-if><div style="position:absolute;left:14%;top:-14px;width:120px;height:30px;background:rgba(233,223,166,.9);transform:rotate(-5deg)"></div></div>
+      <h3 style="margin:8px 0 0;font-size:34px;line-height:1;text-transform:uppercase;letter-spacing:.02em"><span style="background:#fff;border:3px solid #111;padding:2px 10px;display:inline-block;transform:rotate({{ b.rot2 }})">{{ b.name }}</span></h3>
+      <p style="margin:0;font:400 22px/1.25 'Shadows Into Light',cursive;color:#333">{{ b.blurb }}</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;font-size:15px;text-transform:uppercase;letter-spacing:.06em"><a href="{{ b.ig }}" target="_blank" style="text-decoration:none;background:#111;color:#efe9db;padding:5px 10px">Instagram</a><sc-if value="{{ b.sp }}" hint-placeholder-val="{{ true }}"><a href="{{ b.sp }}" target="_blank" style="text-decoration:none;background:#1F8A8C;color:#fff;padding:5px 10px">Spotify</a></sc-if><a href="{{ b.bc }}" target="_blank" style="text-decoration:none;border:3px solid #111;padding:2px 10px">Bandcamp</a></div>
+    </article>
+    </sc-for>
+  </div>
+</section>
+
+<!-- RELEASES -->
+<section id="releases" style="background:#1E4F66;color:#efe9db;padding:70px 32px 80px;margin-top:40px;border-top:3px solid #111">
+  <div style="max-width:1440px;margin:0 auto">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:40px"><h2 style="margin:0;font-size:clamp(48px,6vw,88px);line-height:.9;text-transform:uppercase;display:inline-block;background:#EE8A1C;color:#111;padding:4px 16px;transform:rotate(1deg)">Releases</h2><span style="font:400 24px/1.2 'Shadows Into Light',cursive;color:#E9DFA6">all on Spotify and Bandcamp. some on vinyl, ask nicely.</span></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:36px 28px">
+      <sc-for list="{{ releases }}" as="r" hint-placeholder-count="8">
+      <a href="{{ r.url }}" style="text-decoration:none;display:flex;flex-direction:column;gap:10px;color:#efe9db"><div style="position:relative;aspect-ratio:1;background:repeating-linear-gradient(45deg,#2a5f78 0 12px,#1E4F66 12px 24px);transform:rotate({{ r.rot }});box-shadow:4px 6px 0 #111;overflow:hidden"><sc-if value="{{ r.img }}" hint-placeholder-val="{{ false }}"><img src="{{ r.img }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></sc-if><sc-if value="{{ r.placeholder }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:0;display:grid;place-items:center;font:400 13px/1.4 ui-monospace,monospace;color:#E9DFA6;text-align:center;padding:16px">cover art<br>{{ r.title }}</div></sc-if></div><div style="font-size:22px;line-height:1;text-transform:uppercase">{{ r.title }}</div><div style="font:400 18px/1.2 'Shadows Into Light',cursive;color:#EE8A1C">{{ r.artist }} · {{ r.year }}</div></a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="position:relative;max-width:1440px;margin:0 auto;padding:80px 32px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center">
+  <div style="position:relative;min-height:420px;display:flex;align-items:center;justify-content:center">
+    <div style="position:relative;width:min(100%,460px);aspect-ratio:4/5;background:#fff;border:3px solid #111;box-shadow:6px 6px 0 #111;transform:rotate(-3deg);overflow:hidden">
+      <img src="assets/kokos-photo.jpg" alt="Kokos" style="width:100%;height:100%;object-fit:cover;display:block">
+      <img src="assets/kokos-bust.png" alt="" style="position:absolute;right:-14px;bottom:-10px;width:34%;transform:rotate(-10deg);filter:drop-shadow(0 0 0 #fff) drop-shadow(0 0 0 #fff) drop-shadow(0 0 0 #fff) drop-shadow(0 0 0 #fff) drop-shadow(2px 4px 0 #111)">
+      <div style="position:absolute;left:12px;bottom:10px;font:400 20px/1.2 'Shadows Into Light',cursive;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.7)">Kokos, the original.</div>
+    </div>
+    <div style="position:absolute;left:8%;top:-10px;width:140px;height:34px;background:rgba(233,223,166,.9);transform:rotate(-6deg);z-index:2"></div>
+  </div>
+  <div>
+    <h2 style="margin:0 0 24px;font-size:clamp(48px,6vw,88px);line-height:.9;text-transform:uppercase"><span style="background:#1E4F66;color:#fff;padding:4px 16px;display:inline-block;transform:rotate(-1deg)">Who is</span><br><span style="background:#EE8A1C;color:#111;padding:4px 16px;display:inline-block;transform:rotate(1.5deg);margin-top:8px">Kokos?</span></h2>
+    <div style="font:400 26px/1.35 'Shadows Into Light',cursive;color:#222;display:flex;flex-direction:column;gap:16px">
+      <p style="margin:0">Kokos is a yellow cat. He lives near the studio, has opinions about mixes, and once sat on a Marshall for an entire session. He has been to space exactly zero times. We named the label after him anyway.</p>
+      <p style="margin:0">Kokos in Space is a collective label and music studio in Oslo. We release records by friends and people who should be friends, book shows, and record in our own room.</p>
+      <p style="margin:0;font-family:Anton,Impact,sans-serif;font-size:16px;letter-spacing:.06em;text-transform:uppercase;color:#555">[ Replace with the true story ]</p>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER + CONTACT -->
+<section id="newsletter" style="max-width:1440px;margin:0 auto;padding:20px 32px 100px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:40px;align-items:start">
+  <div style="background:#fff;border:3px solid #111;padding:22px;transform:rotate(-1.5deg);box-shadow:-6px 6px 0 #111">
+    <div style="font-size:26px;text-transform:uppercase;letter-spacing:.04em;line-height:1.05">Get the newsletter, no spam, just space</div>
+    <div class="ml-embedded" data-form="8FoZR8" style="margin-top:12px;font-family:system-ui,sans-serif;min-height:120px;background:repeating-linear-gradient(45deg,#f4f1ea 0 10px,#fff 10px 20px);display:grid;place-items:center;font:400 13px/1.4 ui-monospace,monospace;color:#777;text-align:center">MailerLite form 8FoZR8 loads here</div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:18px;padding-top:10px">
+    <div style="font:400 26px/1.3 'Shadows Into Light',cursive;color:#1E4F66;transform:rotate(-1deg)">Want a band on your stage? Want to talk to the label? Two buttons, one cat.</div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;font-size:22px;text-transform:uppercase;letter-spacing:.04em"><a href="mailto:booking@kokosinspace.com" style="text-decoration:none;background:#1E4F66;color:#fff;padding:14px 22px;transform:rotate(1.5deg);display:inline-block;box-shadow:4px 4px 0 #111">Booking →</a><a href="mailto:label@kokosinspace.com" style="text-decoration:none;border:3px solid #111;background:#efe9db;padding:11px 22px;transform:rotate(-1deg);display:inline-block;box-shadow:4px 4px 0 #111">Label contact →</a></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;font-size:15px;text-transform:uppercase;letter-spacing:.06em;margin-top:6px"><a href="https://www.instagram.com/kokosinspace" target="_blank" style="text-decoration:none;background:#111;color:#efe9db;padding:5px 10px">Instagram</a><a href="https://open.spotify.com/playlist/7yHrfwi0oz244fqON0VYRC" target="_blank" style="text-decoration:none;background:#1F8A8C;color:#fff;padding:5px 10px">Spotify</a><a href="#" style="text-decoration:none;border:3px solid #111;padding:2px 10px">Bandcamp</a></div>
+  </div>
+</section>
+
+<footer style="position:relative;background:#1E4F66;color:#efe9db;padding:26px 32px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:15px;text-transform:uppercase;letter-spacing:.08em;border-top:3px solid #111"><span>© 2026 Kokos in Space Records · Oslo</span><span style="font:400 18px/1 'Shadows Into Light',cursive;color:#E9DFA6;text-transform:none;letter-spacing:0">Kokos was not harmed in the making of this website.</span></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;grain&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Look&quot;},&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Look&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const motion = this.props.motion ?? true;
+    return {
+      grain: this.props.grain ?? true,
+      marqAnim: motion ? 'kmarq 30s linear infinite' : 'none',
+      floatAnim: motion ? 'kfloat 18s ease-in-out infinite' : 'none',
+      bands: bands.map(b => ({ ...b, noImg: !b.img })),
+      releases,
+    };
+  }
+}
+const ig = n => 'https://www.instagram.com/' + n;
+const bands = [
+        { name: 'Twin Pines Mall', blurb: 'Dream pop with a flashlight under the covers. Ghost Orchid is out now.', img: 'assets/band-tpm.jpg', rot: '-2deg', rot2: '-1.5deg', ig: ig('twinpinesmall'), sp: '#', bc: '#' },
+        { name: 'The Hallway', blurb: 'Indie rock from a rooftop at 2 a.m. Pitfalls of Modern Intimacy, on repeat.', img: 'assets/cover-pomi.jpg', rot: '1.5deg', rot2: '1deg', ig: ig('thehallway'), sp: '#', bc: '#' },
+        { name: 'Sad Chloe', blurb: 'Three people, one red bass, a lot of feedback. Bizarre Starr says the rest.', img: 'assets/band-sadchloe.jpg', rot: '-1deg', rot2: '2deg', ig: ig('sadchloe'), sp: '#', bc: '#' },
+        { name: 'Eight Minus', blurb: 'Noise, arithmetic, no encore. Photo pending.', img: 'assets/band-herman.jpg', rot: '2deg', rot2: '-1deg', ig: ig('eightminus'), sp: '#', bc: '#' },
+        { name: 'Iwishiwasadinosaur', blurb: 'Emo, loud, extinct in the best way. Photo pending.', img: '', rot: '-1.5deg', rot2: '1.5deg', ig: ig('iwishiwasadinosaur'), sp: '#', bc: '#' },
+  { name: 'Gærsint Bæver', blurb: 'Newest on the roster. Not on Spotify yet, so go to Bandcamp like it\'s 2009. Photo pending.', img: '', rot: '2deg', rot2: '-2deg', ig: ig('gaersintbaever'), sp: '', bc: '#' },
+];
+const releases = [
+        { title: 'Ghost Orchid', artist: 'Twin Pines Mall', year: '2025', img: 'assets/cover-ghost-orchid.jpg', rot: '-2deg', url: '#' },
+        { title: 'Bizarre Starr', artist: 'Sad Chloe', year: '2024', img: 'assets/cover-bizarre-starr.jpg', rot: '1.5deg', url: '#' },
+        { title: 'Pitfalls of Modern Intimacy', artist: 'The Hallway', year: '2024', img: 'assets/cover-pomi.jpg', rot: '-1deg', url: '#' },
+        { title: 'December', artist: 'Soothie', year: '2023', img: 'assets/cover-december.jpg', rot: '2deg', url: '#' },
+        { title: 'TBA', artist: 'Eight Minus', year: '—', img: '', placeholder: true, rot: '-1.5deg', url: '#' },
+        { title: 'TBA', artist: 'Iwishiwasadinosaur', year: '—', img: '', placeholder: true, rot: '1deg', url: '#' },
+];
+</script>
+</body>
+</html>

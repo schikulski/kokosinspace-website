@@ -1,0 +1,37 @@
+.marquee {
+  background: var(--teal);
+  color: var(--white);
+  border-top: var(--border);
+  border-bottom: var(--border);
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 10px 0;
+}
+.track {
+  display: inline-flex;
+  animation: kmarq 30s linear infinite;
+  will-change: transform;
+}
+.marquee:hover .track {
+  animation-play-state: paused;
+}
+.item {
+  display: inline-flex;
+  gap: 48px;
+  padding-right: 48px;
+}
+.star {
+  color: var(--moon);
+}
+@media (max-width: 639px) {
+  .marquee {
+    font-size: 22px;
+  }
+  .item {
+    gap: 28px;
+    padding-right: 28px;
+  }
+}
