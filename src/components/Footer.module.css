@@ -1,0 +1,21 @@
+.footer {
+  position: relative;
+  background: var(--blue);
+  color: var(--paper);
+  padding: 26px var(--pad-x);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-top: var(--border);
+}
+.note {
+  font-size: 18px;
+  line-height: 1;
+  color: var(--moon);
+  text-transform: none;
+  letter-spacing: 0;
+}

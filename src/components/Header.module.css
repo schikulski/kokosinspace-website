@@ -1,0 +1,121 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 18px var(--pad-x);
+  background: rgba(239, 233, 219, 0.92);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-bottom: var(--border);
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+}
+.logo:hover {
+  color: inherit;
+}
+
+.circle {
+  position: relative;
+  display: block;
+  flex: none;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--ink);
+  border: var(--border);
+  overflow: hidden;
+}
+.circle img {
+  position: absolute;
+  left: -4px;
+  top: 2px;
+  width: 76px;
+  height: auto;
+  max-width: none;
+}
+
+.wordmark {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 8px 12px;
+  transform: rotate(-2deg);
+  line-height: 1.1;
+}
+
+.nav {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.booking,
+.label {
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.booking {
+  background: var(--blue);
+  color: var(--white);
+  padding: 5px 12px;
+  transform: rotate(1.5deg);
+}
+.booking:hover {
+  color: var(--white);
+  transform: rotate(1.5deg) translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+.label {
+  border: var(--border);
+  padding: 2px 12px;
+  transform: rotate(-1deg);
+}
+.label:hover {
+  transform: rotate(-1deg) translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+@media (max-width: 1023px) {
+  .nav {
+    display: none;
+  }
+}
+
+@media (max-width: 639px) {
+  .header {
+    padding: 12px var(--pad-x);
+    font-size: 15px;
+    gap: 12px;
+  }
+  .circle {
+    width: 48px;
+    height: 48px;
+  }
+  .circle img {
+    width: 58px;
+    left: -3px;
+    top: 1px;
+  }
+  .wordmark {
+    padding: 6px 10px;
+  }
+}
