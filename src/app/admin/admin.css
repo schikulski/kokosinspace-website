@@ -347,6 +347,6 @@
   z-index: 5;
   margin-top: 32px;
   padding: 14px 0;
-  background: rgba(239, 233, 219, 0.95);
+  background: var(--paper);
   border-top: var(--border);
 }
