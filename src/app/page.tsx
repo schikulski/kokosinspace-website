@@ -9,7 +9,10 @@ import { Marquee } from "@/components/Marquee";
 import { Releases } from "@/components/Releases";
 import { getBands, getContactEmails, getHeroImages, getReleases } from "@/lib/db/queries";
 
-export const revalidate = 3600;
+// Always render from the database. Neon runs in the same AWS region as the
+// Vercel functions (us-east), so a request costs a few tens of milliseconds,
+// and admin edits show up on the very next page load.
+export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const [bands, releases, emails, heroImages] = await Promise.all([
