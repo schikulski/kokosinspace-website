@@ -1,7 +1,7 @@
 import { asc, eq } from "drizzle-orm";
 import { db } from ".";
 import { site } from "@/lib/site";
-import { bands, releases, settings } from "./schema";
+import { bands, heroImages, releases, settings } from "./schema";
 
 export function getBands() {
   return db.select().from(bands).orderBy(asc(bands.sortOrder), asc(bands.id));
@@ -9,6 +9,10 @@ export function getBands() {
 
 export function getReleases() {
   return db.select().from(releases).orderBy(asc(releases.sortOrder), asc(releases.id));
+}
+
+export function getHeroImages() {
+  return db.select().from(heroImages).orderBy(asc(heroImages.sortOrder), asc(heroImages.id));
 }
 
 export async function getBand(id: number) {

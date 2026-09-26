@@ -1,16 +1,64 @@
 import Link from "next/link";
-import { getBands, getContactEmails, getReleases } from "@/lib/db/queries";
+import { getBands, getContactEmails, getHeroImages, getReleases } from "@/lib/db/queries";
 import { deleteBand, moveBand } from "./bands/actions";
+import { addHeroImage, deleteHeroImage, moveHeroImage } from "./hero/actions";
 import { deleteRelease, moveRelease } from "./releases/actions";
 import { ConfirmDelete } from "@/components/admin/ConfirmDelete";
 import { ContactEmailsForm } from "@/components/admin/ContactEmailsForm";
+import { HeroImageForm } from "@/components/admin/HeroImageForm";
 
 export default async function AdminHome() {
-  const [bands, releases, emails] = await Promise.all([getBands(), getReleases(), getContactEmails()]);
+  const [bands, releases, emails, hero] = await Promise.all([
+    getBands(),
+    getReleases(),
+    getContactEmails(),
+    getHeroImages(),
+  ]);
 
   return (
     <>
       <h1 className="adm-h1">Label control room</h1>
+
+      <section id="hero" className="adm-section">
+        <div className="adm-section-head">
+          <h2 className="adm-h2">Hero photos</h2>
+          <span className="adm-hint">The taped-on photo at the top of the page. Several photos fade through in this order.</span>
+        </div>
+        <div className="adm-card">
+          {hero.length === 0 ? (
+            <p className="adm-empty">No photos yet, the site shows the default Sad Chloe photo.</p>
+          ) : (
+            <div className="adm-hero-grid">
+              {hero.map((h, i) => (
+                <figure key={h.id} className="adm-hero-item">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={h.url} alt={h.alt} className="adm-hero-thumb" />
+                  <figcaption className="adm-hint">{h.alt || "(no alt text)"}</figcaption>
+                  <div className="adm-actions adm-actions--left">
+                    <form action={moveHeroImage}>
+                      <input type="hidden" name="id" value={h.id} />
+                      <input type="hidden" name="dir" value="up" />
+                      <button className="adm-btn adm-btn--icon" disabled={i === 0} aria-label="Move earlier">
+                        ←
+                      </button>
+                    </form>
+                    <form action={moveHeroImage}>
+                      <input type="hidden" name="id" value={h.id} />
+                      <input type="hidden" name="dir" value="down" />
+                      <button className="adm-btn adm-btn--icon" disabled={i === hero.length - 1} aria-label="Move later">
+                        →
+                      </button>
+                    </form>
+                    <ConfirmDelete action={deleteHeroImage} id={h.id} label="Remove this photo from the rotation?" />
+                  </div>
+                </figure>
+              ))}
+            </div>
+          )}
+          <hr className="adm-hr" />
+          <HeroImageForm action={addHeroImage} />
+        </div>
+      </section>
 
       <section id="bands" className="adm-section">
         <div className="adm-section-head">

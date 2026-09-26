@@ -15,6 +15,13 @@
       "when": 1790441265660,
       "tag": "0001_material_meggan",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1790445456829,
+      "tag": "0002_hero_images",
+      "breakpoints": true
     }
   ]
 }

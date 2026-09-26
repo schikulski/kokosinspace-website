@@ -1,18 +1,105 @@
-.kokos {
+.orbit {
   position: fixed;
   right: clamp(12px, 3vw, 48px);
   bottom: clamp(60px, 10vh, 120px);
   width: clamp(90px, 9vw, 130px);
-  height: auto;
   z-index: 30;
   pointer-events: none;
+  animation: drift 26s ease-in-out infinite;
+  will-change: transform;
+}
+
+.kokos {
+  display: block;
+  width: 100%;
+  height: auto;
   filter: drop-shadow(3px 5px 0 var(--ink));
-  animation: kfloat 18s ease-in-out infinite;
+  animation: tumble 11s ease-in-out infinite;
+  transform-origin: 50% 55%;
+  will-change: transform;
+}
+
+/* Slow, wide path around the corner. Never leaves the viewport on desktop. */
+@keyframes drift {
+  0% {
+    transform: translate(0, 0);
+  }
+  18% {
+    transform: translate(-90px, -110px);
+  }
+  38% {
+    transform: translate(-210px, -40px);
+  }
+  55% {
+    transform: translate(-150px, 70px);
+  }
+  72% {
+    transform: translate(-40px, -160px);
+  }
+  88% {
+    transform: translate(20px, -60px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* Weightless tumble and bob: rotates back and forth, breathes a little. */
+@keyframes tumble {
+  0% {
+    transform: rotate(-8deg) translateY(0) scale(1);
+  }
+  25% {
+    transform: rotate(9deg) translateY(-10px) scale(1.03);
+  }
+  50% {
+    transform: rotate(16deg) translateY(4px) scale(1);
+  }
+  75% {
+    transform: rotate(-3deg) translateY(-6px) scale(0.98);
+  }
+  100% {
+    transform: rotate(-8deg) translateY(0) scale(1);
+  }
 }
 
 @media (max-width: 639px) {
-  .kokos {
+  .orbit {
     width: 80px;
-    animation-name: kfloat-sm;
+    animation-name: drift-sm;
+  }
+}
+
+@keyframes drift-sm {
+  0% {
+    transform: translate(0, 0);
+  }
+  18% {
+    transform: translate(-45px, -55px);
+  }
+  38% {
+    transform: translate(-105px, -20px);
+  }
+  55% {
+    transform: translate(-75px, 35px);
+  }
+  72% {
+    transform: translate(-20px, -80px);
+  }
+  88% {
+    transform: translate(10px, -30px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit,
+  .kokos {
+    animation: none;
+  }
+  .kokos {
+    transform: rotate(-6deg);
   }
 }
