@@ -27,5 +27,8 @@ export async function subscribe(email: string, name?: string): Promise<Subscribe
 
   const body = (await res.json().catch(() => ({}))) as { message?: string; errors?: Record<string, string[]> };
   const detail = body.errors ? Object.values(body.errors).flat()[0] : body.message;
+  if (detail && /subscriber limit/i.test(detail)) {
+    return { ok: false, message: "The list is full right now. Send us an email instead and we'll add you by hand." };
+  }
   return { ok: false, message: detail || `MailerLite error (${res.status})` };
 }

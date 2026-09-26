@@ -16,9 +16,6 @@ export async function POST(request: Request) {
         addRandomSuffix: true,
         tokenPayload: JSON.stringify({ pathname }),
       }),
-      onUploadCompleted: async () => {
-        // URL is persisted by the form submit that follows the upload.
-      },
     });
     return NextResponse.json(json);
   } catch (err) {

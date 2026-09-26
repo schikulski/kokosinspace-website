@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${anton.variable} ${shadows.variable}`}>
+    <html lang="en" className={`${anton.variable} ${shadows.variable}`} data-scroll-behavior="smooth">
       <body>{children}</body>
     </html>
   );

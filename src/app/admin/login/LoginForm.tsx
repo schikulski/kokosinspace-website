@@ -9,7 +9,7 @@ export function LoginForm() {
     <form action={action} className="adm-form">
       <label className="adm-field">
         <span className="adm-label">Username</span>
-        <input name="username" className="adm-input" autoComplete="username" required autoFocus />
+        <input name="username" className="adm-input" autoComplete="username" defaultValue={state.username ?? ""} required autoFocus />
       </label>
       <label className="adm-field">
         <span className="adm-label">Password</span>
