@@ -312,3 +312,31 @@
   color: var(--muted-2);
   padding: 12px 8px;
 }
+
+.adm-hero-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+.adm-hero-item {
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+.adm-hero-thumb {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: var(--border);
+  box-shadow: var(--shadow-photo);
+  filter: grayscale(1) contrast(1.9) brightness(1.1);
+  display: block;
+}
+.adm-actions--left {
+  justify-content: flex-start;
+}
+.adm-hr {
+  border: 0;
+  border-top: var(--border);
+  margin: 24px 0;
+}

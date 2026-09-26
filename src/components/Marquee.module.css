@@ -35,3 +35,12 @@
     padding-right: 28px;
   }
 }
+
+@keyframes kmarq {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

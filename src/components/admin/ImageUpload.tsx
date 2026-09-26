@@ -7,7 +7,7 @@ type Props = {
   name: string;
   label: string;
   initialUrl?: string | null;
-  folder: "bands" | "releases";
+  folder: "bands" | "releases" | "hero";
   square?: boolean;
 };
 

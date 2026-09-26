@@ -34,3 +34,13 @@ export type Band = typeof bands.$inferSelect;
 export type NewBand = typeof bands.$inferInsert;
 export type Release = typeof releases.$inferSelect;
 export type NewRelease = typeof releases.$inferInsert;
+
+export const heroImages = pgTable("hero_images", {
+  id: serial("id").primaryKey(),
+  url: text("url").notNull(),
+  alt: text("alt").notNull().default(""),
+  sortOrder: integer("sort_order").notNull().default(0),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+});
+
+export type HeroImage = typeof heroImages.$inferSelect;

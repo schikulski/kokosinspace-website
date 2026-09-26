@@ -1,32 +1,17 @@
-import Image from "next/image";
+import type { HeroImage } from "@/lib/db/schema";
 import { site } from "@/lib/site";
+import { HeroCollage } from "./HeroCollage";
 import styles from "./Hero.module.css";
 
-export function Hero() {
+const FALLBACK: HeroImage[] = [
+  { id: 0, url: "/images/band-sadchloe.webp", alt: "Sad Chloe on stage", sortOrder: 0, createdAt: new Date(0) },
+];
+
+export function Hero({ images }: { images: HeroImage[] }) {
   return (
     <section id="top" className={`container ${styles.hero}`}>
       <div className={styles.left}>
-        <div className={styles.collage}>
-          <Image
-            src="/images/band-sadchloe.webp"
-            alt="Sad Chloe on stage"
-            width={1600}
-            height={1076}
-            sizes="(max-width: 639px) 75vw, 450px"
-            className={styles.photo}
-            priority
-          />
-          <div className="tape" style={{ left: "28%", top: -14 }} />
-          <Image
-            src="/images/patch-color.png"
-            alt="Kokos in Space Records patch"
-            width={900}
-            height={900}
-            sizes="(max-width: 639px) 58vw, 350px"
-            className={styles.patch}
-            priority
-          />
-        </div>
+        <HeroCollage images={images.length ? images : FALLBACK} />
         <h1 className={styles.headline}>
           <span className={styles.w1}>Kokos</span>
           <span className={styles.w2}>in</span>

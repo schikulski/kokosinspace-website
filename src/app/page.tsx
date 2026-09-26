@@ -7,12 +7,12 @@ import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Marquee } from "@/components/Marquee";
 import { Releases } from "@/components/Releases";
-import { getBands, getReleases } from "@/lib/db/queries";
+import { getBands, getHeroImages, getReleases } from "@/lib/db/queries";
 
 export const revalidate = 3600;
 
 export default async function Home() {
-  const [bands, releases] = await Promise.all([getBands(), getReleases()]);
+  const [bands, releases, heroImages] = await Promise.all([getBands(), getReleases(), getHeroImages()]);
 
   return (
     <>
@@ -20,7 +20,7 @@ export default async function Home() {
       <div className="grain" aria-hidden="true" />
       <Header />
       <main>
-        <Hero />
+        <Hero images={heroImages} />
         <Marquee names={bands.map((b) => b.name)} />
         <Bands bands={bands} />
         <Releases releases={releases} />
