@@ -22,6 +22,24 @@
   background: var(--ink);
 }
 
+.close {
+  position: fixed;
+  top: 18px;
+  right: var(--pad-x);
+  gap: 0;
+}
+.close span:first-child {
+  transform: translateY(2px) rotate(45deg);
+}
+.close span:last-child {
+  transform: translateY(-2px) rotate(-45deg);
+}
+@media (max-width: 639px) {
+  .close {
+    top: 12px;
+  }
+}
+
 .overlay {
   position: fixed;
   inset: 0;
